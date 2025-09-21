@@ -219,9 +219,9 @@ const HeroSection = () => {
                   label: "Facebook",
                 },
                 {
-                  icon: FaWhatsapp,
-                  href: "https://wa.me/6285759328890",
-                  label: "WhatsApp",
+                  icon: FiLinkedin,
+                  href: "https://www.linkedin.com/in/rafkyferdianalgiffari",
+                  label: "LinkedIn",
                 },
               ].map((social, index) => (
                 <motion.a
