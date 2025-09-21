@@ -1,24 +1,24 @@
-"use client"
+"use client";
 
-import { motion, useScroll, useTransform } from "framer-motion"
-import { ArrowDown } from "lucide-react"
-import { FiGithub, FiInstagram, FiFacebook } from "react-icons/fi"
-import { FaWhatsapp } from "react-icons/fa"
-import { useTheme } from "../../context/ThemeContext"
-import PROFILE_PIC from "../../assets/images/ProfilePic.png"
-import { containerVariants, itemVariants } from "../../utils/helper"
+import { motion, useScroll, useTransform } from "framer-motion";
+import { ArrowDown } from "lucide-react";
+import { FiGithub, FiInstagram, FiFacebook, FiLinkedin } from "react-icons/fi";
+import { FaWhatsapp } from "react-icons/fa";
+import { useTheme } from "../../context/ThemeContext";
+import PROFILE_PIC from "../../assets/images/ProfilePic.png";
+import { containerVariants, itemVariants } from "../../utils/helper";
 
 const HeroSection = () => {
-  const { isDarkMode } = useTheme()
-  const { scrollY } = useScroll()
-  const heroY = useTransform(scrollY, [0, 500], [0, -100])
+  const { isDarkMode } = useTheme();
+  const { scrollY } = useScroll();
+  const heroY = useTransform(scrollY, [0, 500], [0, -100]);
 
   const scrollToSection = (sectionId) => {
-    const element = document.getElementById(sectionId)
+    const element = document.getElementById(sectionId);
     if (element) {
-      element.scrollIntoView({ behavior: "smooth" })
+      element.scrollIntoView({ behavior: "smooth" });
     }
-  }
+  };
 
   const textVariants = {
     hidden: { y: 20, opacity: 0 },
@@ -30,7 +30,7 @@ const HeroSection = () => {
         ease: "easeOut",
       },
     },
-  }
+  };
   const imageVariants = {
     hidden: { x: 50, opacity: 0 },
     visible: {
@@ -42,7 +42,7 @@ const HeroSection = () => {
         delay: 0.5,
       },
     },
-  }
+  };
 
   // Theme classes
   const themeClasses = {
@@ -64,7 +64,7 @@ const HeroSection = () => {
     divider: isDarkMode ? "text-gray-700" : "text-gray-400",
     scrollIndicator: isDarkMode ? "text-gray-600" : "text-gray-400",
     buttonHover: isDarkMode ? "hover:bg-blue-600" : "hover:bg-blue-500",
-  }
+  };
 
   return (
     <section
@@ -102,15 +102,27 @@ const HeroSection = () => {
       <div className="max-w-7xl mx-auto w-full z-10">
         {/* Mobile Layout */}
         <div className="block lg:hidden">
-          <motion.div initial="hidden" animate="visible" variants={containerVariants} className="text-center">
+          <motion.div
+            initial="hidden"
+            animate="visible"
+            variants={containerVariants}
+            className="text-center"
+          >
             {/* Profile Image - Mobile */}
-            <motion.div variants={imageVariants} className="mb-8 flex justify-center items-center">
+            <motion.div
+              variants={imageVariants}
+              className="mb-8 flex justify-center items-center"
+            >
               <div className="w-32 h-32 flex justify-center items-center relative transform">
                 <motion.div
                   whileHover={{ scale: 1.05 }}
                   className={`w-full h-full rounded-2xl overflow-hidden border-4 ${themeClasses.border} shadow-2xl`}
                 >
-                  <img src={PROFILE_PIC || "/placeholder.svg"} alt="Profile" className="w-full h-full object-cover" />
+                  <img
+                    src={PROFILE_PIC || "/placeholder.svg"}
+                    alt="Profile"
+                    className="w-full h-full object-cover"
+                  />
                 </motion.div>
                 {/* Decorative Ring */}
                 <motion.div
@@ -142,9 +154,14 @@ const HeroSection = () => {
                 <span className={themeClasses.techText}>Node.js</span>
               </motion.div>
             </motion.div>
-            <motion.h1 variants={itemVariants} className="text-3xl md:text-5xl font-light mb-6 leading-tight">
+            <motion.h1
+              variants={itemVariants}
+              className="text-3xl md:text-5xl font-light mb-6 leading-tight"
+            >
               <span className={themeClasses.text}>Building Digital </span>
-              <span className="text-blue-500 font-medium ml-2">Experiences</span>
+              <span className="text-blue-500 font-medium ml-2">
+                Experiences
+              </span>
               <br />
               <span className={themeClasses.text}>that matter</span>
             </motion.h1>
@@ -152,8 +169,8 @@ const HeroSection = () => {
               variants={itemVariants}
               className={`text-base md:text-lg ${themeClasses.textSecondary} mb-8 max-w-xl mx-auto font-light leading-relaxed`}
             >
-              I craft beautiful, functional web and mobile applications with modern technologies and thoughtful user
-              experiences.
+              I craft beautiful, functional web and mobile applications with
+              modern technologies and thoughtful user experiences.
             </motion.p>
             {/* CTA Buttons - Mobile */}
             <motion.div
@@ -178,12 +195,31 @@ const HeroSection = () => {
               </motion.button>
             </motion.div>
             {/* Social Links - Mobile */}
-            <motion.div variants={itemVariants} className="flex justify-center space-x-6 mb-5">
+            <motion.div
+              variants={itemVariants}
+              className="flex justify-center space-x-6 mb-5"
+            >
               {[
-                  { icon: FiGithub, href: "https://github.com/rafenri22", label: "GitHub" },
-                  { icon: FiInstagram, href: "https://www.instagram.com/giffari.ferdian", label: "Instagram" },
-                  { icon: FiFacebook, href: "https://web.facebook.com/profile.php?id=100074854245924", label: "Facebook" },
-                  { icon: FaWhatsapp, href: "https://wa.me/6285759328890", label: "WhatsApp" },
+                {
+                  icon: FiGithub,
+                  href: "https://github.com/rafenri22",
+                  label: "GitHub",
+                },
+                {
+                  icon: FiInstagram,
+                  href: "https://www.instagram.com/giffari.ferdian",
+                  label: "Instagram",
+                },
+                {
+                  icon: FiFacebook,
+                  href: "https://web.facebook.com/profile.php?id=100074854245924",
+                  label: "Facebook",
+                },
+                {
+                  icon: FaWhatsapp,
+                  href: "https://wa.me/6285759328890",
+                  label: "WhatsApp",
+                },
               ].map((social, index) => (
                 <motion.a
                   key={index}
@@ -213,9 +249,14 @@ const HeroSection = () => {
               >
                 Full Stack Developer
               </motion.div>
-              <motion.h1 variants={itemVariants} className="text-5xl xl:text-6xl font-light mb-5 leading-tight">
+              <motion.h1
+                variants={itemVariants}
+                className="text-5xl xl:text-6xl font-light mb-5 leading-tight"
+              >
                 <span className={themeClasses.text}>Building Digital </span>
-                <span className="text-blue-500 font-medium ml-3">Experiences</span>
+                <span className="text-blue-500 font-medium ml-3">
+                  Experiences
+                </span>
                 <br />
                 <span className={themeClasses.text}>that matter</span>
               </motion.h1>
@@ -223,8 +264,9 @@ const HeroSection = () => {
                 variants={itemVariants}
                 className={`text-xl ${themeClasses.textSecondary} mb-5 max-w-2xl font-light leading-relaxed`}
               >
-                I craft beautiful, functional web and mobile applications with modern technologies and thoughtful user
-                experiences. Passionate about creating solutions that solve real problems.
+                I craft beautiful, functional web and mobile applications with
+                modern technologies and thoughtful user experiences. Passionate
+                about creating solutions that solve real problems.
               </motion.p>
               {/* CTA Buttons - Desktop */}
               <motion.div variants={itemVariants} className="flex gap-6 mb-5">
@@ -246,12 +288,31 @@ const HeroSection = () => {
                 </motion.button>
               </motion.div>
               {/* Social Links - Desktop */}
-              <motion.div variants={itemVariants} className="flex space-x-6 mb-12">
+              <motion.div
+                variants={itemVariants}
+                className="flex space-x-6 mb-12"
+              >
                 {[
-                  { icon: FiGithub, href: "https://github.com/rafenri22", label: "GitHub" },
-                  { icon: FiInstagram, href: "https://www.instagram.com/giffari.ferdian", label: "Instagram" },
-                  { icon: FiFacebook, href: "https://web.facebook.com/profile.php?id=100074854245924", label: "Facebook" },
-                  { icon: FaWhatsapp, href: "https://wa.me/6285759328890", label: "WhatsApp" },
+                  {
+                    icon: FiGithub,
+                    href: "https://github.com/rafenri22",
+                    label: "GitHub",
+                  },
+                  {
+                    icon: FiInstagram,
+                    href: "https://www.instagram.com/giffari.ferdian",
+                    label: "Instagram",
+                  },
+                  {
+                    icon: FiFacebook,
+                    href: "https://web.facebook.com/profile.php?id=100074854245924",
+                    label: "Facebook",
+                  },
+                  {
+                    icon: FiLinkedin,
+                    href: "https://www.linkedin.com/in/rafkyferdianalgiffari",
+                    label: "LinkedIn",
+                  },
                 ].map((social, index) => (
                   <motion.a
                     key={index}
@@ -278,13 +339,20 @@ const HeroSection = () => {
                 <span className={themeClasses.divider}>•</span>
                 <span className={themeClasses.techText}>Node.js</span>
               </motion.div>
-              <motion.div variants={imageVariants} className="flex justify-center items-center">
+              <motion.div
+                variants={imageVariants}
+                className="flex justify-center items-center"
+              >
                 <div className="w-full max-w-lg flex justify-center items-center relative transform">
                   <motion.div
                     whileHover={{ scale: 1.02 }}
                     className={`w-100 h-100 rounded-[2rem] overflow-hidden border-4 ${themeClasses.border} shadow-2xl`}
                   >
-                    <img src={PROFILE_PIC || "/placeholder.svg"} alt="Profile" className="w-full h-full object-cover" />
+                    <img
+                      src={PROFILE_PIC || "/placeholder.svg"}
+                      alt="Profile"
+                      className="w-full h-full object-cover"
+                    />
                   </motion.div>
                   {/* Decorative Ring */}
                   <motion.div
@@ -335,7 +403,7 @@ const HeroSection = () => {
         <ArrowDown size={20} className={themeClasses.scrollIndicator} />
       </motion.div>
     </section>
-  )
-}
+  );
+};
 
-export default HeroSection
+export default HeroSection;

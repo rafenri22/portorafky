@@ -12,7 +12,7 @@ import {
   MapPin,
   Phone,
 } from "lucide-react";
-import { FiGithub, FiLinkedin, FiTwitter } from "react-icons/fi";
+import { FiGithub, FiInstagram, FiLinkedin, FiTwitter } from "react-icons/fi";
 import PROJECT_IMG_1 from "../assets/images/project-1.png";
 import PROJECT_IMG_2 from "../assets/images/project-2.png";
 import PROJECT_IMG_3 from "../assets/images/project-3.png";
@@ -26,11 +26,11 @@ export const SKILLS_CATEGORY = [
     icon: Code2,
     description: "Crafting beautiful, responsive user interfaces.",
     skills: [
-      { name: "React", level: 88, color: "bg-blue-500" },
-      { name: "TypeScript", level: 80, color: "bg-blue-600" },
-      { name: "Next.js", level: 80, color: "bg-gray-500" },
-      { name: "Flutter", level: 90, color: "bg-cyan-500" },
-      { name: "Tailwind CSS", level: 90, color: "bg-pink-500" },
+      { name: "React", level: 78, color: "bg-blue-500" },
+      { name: "TypeScript", level: 70, color: "bg-blue-600" },
+      { name: "Next.js", level: 75, color: "bg-gray-500" },
+      { name: "Flutter", level: 78, color: "bg-cyan-500" },
+      { name: "Tailwind CSS", level: 75, color: "bg-pink-500" },
     ],
   },
   {
@@ -38,11 +38,11 @@ export const SKILLS_CATEGORY = [
     icon: Server,
     description: "Building robust server-side solutions",
     skills: [
-      { name: "Node.js", level: 89, color: "bg-blue-500" },
+      { name: "Node.js", level: 78, color: "bg-blue-500" },
       { name: "Python", level: 75, color: "bg-blue-500" },
       { name: "Rest API", level: 70, color: "bg-blue-500" },
-      { name: "Java", level: 80, color: "bg-blue-500" },
-      { name: "Express", level: 85, color: "bg-blue-500" },
+      { name: "Java", level: 70, color: "bg-blue-500" },
+      { name: "Express", level: 76, color: "bg-blue-500" },
     ],
   },
   {
@@ -50,10 +50,10 @@ export const SKILLS_CATEGORY = [
     icon: Database,
     description: "Designing and implementing efficient databases",
     skills: [
-      { name: "Supabase", level: 90, color: "bg-blue-500" },
-      { name: "Firebase", level: 75, color: "bg-blue-500" },
+      { name: "Supabase", level: 80, color: "bg-blue-500" },
+      { name: "Firebase", level: 70, color: "bg-blue-500" },
       { name: "Redis", level: 70, color: "bg-blue-500" },
-      { name: "Prisma", level: 75, color: "bg-blue-500" },
+      { name: "Prisma", level: 72, color: "bg-blue-500" },
       { name: "PostgreSQL", level: 80, color: "bg-blue-500" },
     ],
   },
@@ -180,14 +180,14 @@ export const JOURNEY_STEPS = [
     title: "E-Commerce Application Outreach",
     company: "SMK Negeri 2 Kota Depok",
     description:
-      "Conducted training and outreach sessions on utilizing e-commerce applications to boost online sales for small and medium businesses.",
+      "Conducted training and outreach sessions on utilizing e-commerce applications to boost online sales for students in SMK Negeri 2 Kota Depok.",
     icon: Briefcase,
     color: "bg-blue-500",
   },
   {
     year: "2023",
     title: "Full Stack Developer",
-    company: "PT Trijaya Agung Lestari",
+    company: "PO Trijaya Agung Lestari",
     description:
       "Led a cross-functional team in building and deploying scalable web applications, overseeing both frontend and backend development with modern technologies like React, Node.js, and cloud infrastructure.",
     icon: Briefcase,
@@ -227,14 +227,14 @@ export const SOCIAL_LINK = [
   {
     name: "LinkedIn",
     icon: FiLinkedin,
-    url: "https://www.linkedin.com/in/",
+    url: "https://www.linkedin.com/in/rafkyferdianalgiffari",
     color: "hover:text-gray-400",
     bgColor: "hover:bg-gray-800",
   },
   {
-    name: "Twitter",
-    icon: FiTwitter,
-    url: "https://twitter.com/",
+    name: "Instagram",
+    icon: FiInstagram,
+    url: "https://www.instagram.com/giffari.ferdian",
     color: "hover:text-gray-400",
     bgColor: "hover:bg-gray-800",
   },
