@@ -1,36 +1,55 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import { motion, AnimatePresence } from "framer-motion"
-import { Code2, Sun, Moon, Menu, X } from "lucide-react"
-import { useTheme } from "../context/ThemeContext"
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { Code2, Sun, Moon, Menu, X, Languages } from "lucide-react";
+import { useTheme } from "../context/ThemeContext";
+import { useLanguage } from "../context/LanguageContext";
+import { translations } from "../utils/translations";
 
 const Navbar = () => {
-  const { isDarkMode, toggleDarkMode } = useTheme()
-  const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const { isDarkMode, toggleDarkMode } = useTheme();
+  const { currentLanguage, toggleLanguage } = useLanguage();
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const t = translations[currentLanguage];
 
   const ScrollToSection = (sectionId) => {
-    const element = document.getElementById(sectionId)
+    const element = document.getElementById(sectionId);
     if (element) {
-      element.scrollIntoView({ behavior: "smooth" })
-      setIsMenuOpen(false)
+      element.scrollIntoView({ behavior: "smooth" });
+      setIsMenuOpen(false);
     }
-  }
+  };
 
-  // Revert navigation items to the original list
-  const navItems = ["Home", "Skills", "Work", "About", "Contact"]
+  const navItems = [
+    { key: "home", label: t.home },
+    { key: "skills", label: t.skills },
+    { key: "work", label: t.work },
+    { key: "about", label: t.about },
+    { key: "contact", label: t.contact },
+  ];
 
   return (
     <motion.nav
       style={{ opacity: 1 }}
       className={`fixed top-0 w-full z-50 px-6 py-4 ${
         isDarkMode ? "bg-gray-950/80" : "bg-gray-50/80"
-      } backdrop-blur-md border-b ${isDarkMode ? "border-gray-800" : "border-gray-200"}`}
+      } backdrop-blur-md border-b ${
+        isDarkMode ? "border-gray-800" : "border-gray-200"
+      }`}
     >
       <div className="max-w-7xl mx-auto flex items-center justify-between">
-        <motion.div whileHover={{ scale: 1.05 }} className="flex items-center space-x-2">
+        <motion.div
+          whileHover={{ scale: 1.05 }}
+          className="flex items-center space-x-2"
+        >
           <Code2 size={24} className="text-blue-500" />{" "}
-          <span className={`text-lg ml-1 ${isDarkMode ? "text-gray-200" : "text-gray-900"}`}>
+          <span
+            className={`text-lg ml-1 ${
+              isDarkMode ? "text-gray-200" : "text-gray-900"
+            }`}
+          >
             Rafky Ferdian Algiffari
           </span>
         </motion.div>
@@ -38,21 +57,43 @@ const Navbar = () => {
         <div className="hidden md:flex items-center space-x-8">
           {navItems.map((item) => (
             <motion.button
-              key={item}
+              key={item.key}
               whileHover={{ y: -2 }}
-              onClick={() => ScrollToSection(item.toLowerCase())}
+              onClick={() => ScrollToSection(item.key)}
               className={`text-sm uppercase tracking-wider transition-colors ${
-                isDarkMode ? "text-gray-400 hover:text-white" : "text-gray-600 hover:text-gray-900"
+                isDarkMode
+                  ? "text-gray-400 hover:text-white"
+                  : "text-gray-600 hover:text-gray-900"
               }`}
             >
-              {item}
+              {item.label}
             </motion.button>
           ))}
           <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
+            onClick={toggleLanguage}
+            className={`p-2 rounded-full transition-colors flex items-center gap-2 ${
+              isDarkMode
+                ? "text-gray-400 hover:text-white hover:bg-gray-800"
+                : "text-gray-600 hover:text-gray-900 hover:bg-gray-200"
+            }`}
+            title={
+              currentLanguage === "en"
+                ? "Switch to Indonesian"
+                : "Beralih ke Bahasa Inggris"
+            }
+          >
+            <Languages size={18} />
+            <span className="text-xs font-medium uppercase">
+              {currentLanguage}
+            </span>
+          </motion.button>
+          <motion.button
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
             onClick={() => toggleDarkMode(isDarkMode ? "light" : "dark")}
-            className={`p-2 rounded-full transtion-colors ${
+            className={`p-2 rounded-full transition-colors ${
               isDarkMode
                 ? "text-gray-400 hover:text-white hover:bg-gray-800"
                 : "text-gray-600 hover:text-gray-900 hover:bg-gray-200"
@@ -63,6 +104,21 @@ const Navbar = () => {
         </div>
         {/* Mobile Menu Button */}
         <div className="md:hidden flex items-center space-x-4">
+          <motion.button
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            onClick={toggleLanguage}
+            className={`p-2 rounded-full transition-colors flex items-center gap-1 ${
+              isDarkMode
+                ? "text-gray-400 hover:text-white hover:bg-gray-800"
+                : "text-gray-600 hover:text-gray-900 hover:bg-gray-200"
+            }`}
+          >
+            <Languages size={16} />
+            <span className="text-xs font-medium uppercase">
+              {currentLanguage}
+            </span>
+          </motion.button>
           <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
@@ -102,21 +158,23 @@ const Navbar = () => {
           >
             {navItems.map((item) => (
               <motion.button
-                key={item}
+                key={item.key}
                 whileHover={{ x: 5 }}
-                onClick={() => ScrollToSection(item.toLowerCase())}
+                onClick={() => ScrollToSection(item.key)}
                 className={`block w-full text-left py-2 text-sm uppercase tracking-wider transition-colors ${
-                  isDarkMode ? "text-gray-400 hover:text-white" : "text-gray-600 hover:text-gray-900"
+                  isDarkMode
+                    ? "text-gray-400 hover:text-white"
+                    : "text-gray-600 hover:text-gray-900"
                 }`}
               >
-                {item}
+                {item.label}
               </motion.button>
             ))}
           </motion.div>
         )}
       </AnimatePresence>
     </motion.nav>
-  )
-}
+  );
+};
 
-export default Navbar
+export default Navbar;

@@ -5,11 +5,15 @@ import { ArrowDown } from "lucide-react";
 import { FiGithub, FiInstagram, FiFacebook, FiLinkedin } from "react-icons/fi";
 import { FaWhatsapp } from "react-icons/fa";
 import { useTheme } from "../../context/ThemeContext";
+import { useLanguage } from "../../context/LanguageContext";
+import { translations } from "../../utils/translations";
 import PROFILE_PIC from "../../assets/images/ProfilePic.png";
 import { containerVariants, itemVariants } from "../../utils/helper";
 
 const HeroSection = () => {
   const { isDarkMode } = useTheme();
+  const { currentLanguage } = useLanguage();
+  const t = translations[currentLanguage];
   const { scrollY } = useScroll();
   const heroY = useTransform(scrollY, [0, 500], [0, -100]);
 
@@ -141,7 +145,7 @@ const HeroSection = () => {
               variants={textVariants}
               className={`text-sm uppercase tracking-widest ${themeClasses.textTertiary} mb-4`}
             >
-              Full Stack Developer
+              {t.fullStackDeveloper}
               {/* Tech Stack */}
               <motion.div
                 variants={itemVariants}
@@ -158,19 +162,18 @@ const HeroSection = () => {
               variants={itemVariants}
               className="text-3xl md:text-5xl font-light mb-6 leading-tight"
             >
-              <span className={themeClasses.text}>Building Digital </span>
+              <span className={themeClasses.text}>{t.buildingDigital} </span>
               <span className="text-blue-500 font-medium ml-2">
-                Experiences
+                {t.experiences}
               </span>
               <br />
-              <span className={themeClasses.text}>that matter</span>
+              <span className={themeClasses.text}>{t.thatMatter}</span>
             </motion.h1>
             <motion.p
               variants={itemVariants}
               className={`text-base md:text-lg ${themeClasses.textSecondary} mb-8 max-w-xl mx-auto font-light leading-relaxed`}
             >
-              I craft beautiful, functional web and mobile applications with
-              modern technologies and thoughtful user experiences.
+              {t.heroDescription}
             </motion.p>
             {/* CTA Buttons - Mobile */}
             <motion.div
@@ -183,7 +186,7 @@ const HeroSection = () => {
                 onClick={() => scrollToSection("work")}
                 className={`bg-blue-500 ${themeClasses.buttonHover} text-white px-8 py-3 rounded-full text-sm uppercase tracking-wider font-medium transition-all duration-300`}
               >
-                curriculum vitae
+                {t.curriculumVitae}
               </motion.button>
               <motion.button
                 whileHover={{ y: -2 }}
@@ -191,7 +194,7 @@ const HeroSection = () => {
                 onClick={() => scrollToSection("contact")}
                 className={`border ${themeClasses.buttonSecondary} px-8 py-3 rounded-full text-sm uppercase tracking-wider font-medium transition-all duration-300`}
               >
-                Get in Touch
+                {t.getInTouch}
               </motion.button>
             </motion.div>
             {/* Social Links - Mobile */}
@@ -247,26 +250,24 @@ const HeroSection = () => {
                 variants={textVariants}
                 className={`text-sm uppercase tracking-widest ${themeClasses.textTertiary} mb-4`}
               >
-                Full Stack Developer
+                {t.fullStackDeveloper}
               </motion.div>
               <motion.h1
                 variants={itemVariants}
                 className="text-5xl xl:text-6xl font-light mb-5 leading-tight"
               >
-                <span className={themeClasses.text}>Building Digital </span>
+                <span className={themeClasses.text}>{t.buildingDigital} </span>
                 <span className="text-blue-500 font-medium ml-3">
-                  Experiences
+                  {t.experiences}
                 </span>
                 <br />
-                <span className={themeClasses.text}>that matter</span>
+                <span className={themeClasses.text}>{t.thatMatter}</span>
               </motion.h1>
               <motion.p
                 variants={itemVariants}
                 className={`text-xl ${themeClasses.textSecondary} mb-5 max-w-2xl font-light leading-relaxed`}
               >
-                I craft beautiful, functional web and mobile applications with
-                modern technologies and thoughtful user experiences. Passionate
-                about creating solutions that solve real problems.
+                {t.heroDescriptionLong}
               </motion.p>
               {/* CTA Buttons - Desktop */}
               <motion.div variants={itemVariants} className="flex gap-6 mb-5">
@@ -276,7 +277,7 @@ const HeroSection = () => {
                   onClick={() => scrollToSection("work")}
                   className={`bg-blue-500 ${themeClasses.buttonHover} text-white px-10 py-4 rounded-full text-base uppercase tracking-wider font-medium transition-all duration-300`}
                 >
-                  curriculum vitae
+                  {t.curriculumVitae}
                 </motion.button>
                 <motion.button
                   whileHover={{ y: -2 }}
@@ -284,7 +285,7 @@ const HeroSection = () => {
                   onClick={() => scrollToSection("contact")}
                   className={`border ${themeClasses.buttonSecondary} px-10 py-4 rounded-full text-base uppercase tracking-wider font-medium transition-all duration-300`}
                 >
-                  Get in Touch
+                  {t.getInTouch}
                 </motion.button>
               </motion.div>
               {/* Social Links - Desktop */}
@@ -374,7 +375,7 @@ const HeroSection = () => {
                     }}
                     className="absolute -bottom-6 -left-6 bg-blue-500 text-white text-xs font-medium py-2 px-4 rounded-full shadow-lg"
                   >
-                    <span>2+ Years Experience</span>
+                    <span>2+ {t.yearsExperience}</span>
                   </motion.div>
                   <motion.div
                     animate={{ y: [0, -10, 0] }}
@@ -386,7 +387,7 @@ const HeroSection = () => {
                     }}
                     className="absolute -top-6 -right-6 bg-blue-500 text-white text-xs font-medium py-2 px-4 rounded-full shadow-lg"
                   >
-                    <span>10+ Projects</span>
+                    <span>10+ {t.projects}</span>
                   </motion.div>
                 </div>
               </motion.div>
