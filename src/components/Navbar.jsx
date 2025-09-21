@@ -50,7 +50,7 @@ const Navbar = () => {
               isDarkMode ? "text-gray-200" : "text-gray-900"
             }`}
           >
-            Rafky Ferdian Algiffari
+            Rafky Ferdian
           </span>
         </motion.div>
         {/* Desktop Navigation */}

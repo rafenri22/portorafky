@@ -1,15 +1,19 @@
-"use client"
+"use client";
 
-import React from "react"
-import { motion, useInView } from "framer-motion"
-import { useTheme } from "../../context/ThemeContext"
-import { JOURNEY_STEPS, STATS, PASSION } from "../../utils/data"
-import { containerVariants, itemVariants } from "../../utils/helper"
+import React from "react";
+import { motion, useInView } from "framer-motion";
+import { useTheme } from "../../context/ThemeContext";
+import { useLanguage } from "../../context/LanguageContext";
+import { translations } from "../../utils/translations";
+import { JOURNEY_STEPS, STATS, PASSION } from "../../utils/data";
+import { containerVariants, itemVariants } from "../../utils/helper";
 
 const AboutSection = () => {
-  const { isDarkMode } = useTheme()
-  const ref = React.useRef(null)
-  const isInView = useInView(ref, { once: true, amount: 0.1 })
+  const { isDarkMode } = useTheme();
+  const { currentLanguage } = useLanguage();
+  const t = translations[currentLanguage];
+  const ref = React.useRef(null);
+  const isInView = useInView(ref, { once: true, amount: 0.1 });
 
   const themeClasses = {
     bg: isDarkMode ? "bg-gray-950" : "bg-gray-50",
@@ -18,7 +22,70 @@ const AboutSection = () => {
     textSecondary: isDarkMode ? "text-gray-400" : "text-gray-600",
     border: isDarkMode ? "border-gray-800" : "border-gray-200",
     accentText: isDarkMode ? "text-blue-400" : "text-blue-600",
-  }
+  };
+
+  // Get translated journey steps
+  const getTranslatedJourney = () => {
+    return JOURNEY_STEPS.map((step, index) => ({
+      ...step,
+      title:
+        currentLanguage === "id"
+          ? index === 0
+            ? t.androidDeveloper
+            : index === 1
+            ? t.ecommerceOutreach
+            : t.fullStackDevRole
+          : step.title,
+      description:
+        currentLanguage === "id"
+          ? index === 0
+            ? t.androidDevDesc
+            : index === 1
+            ? t.ecommerceDesc
+            : t.fullStackDesc
+          : step.description,
+    }));
+  };
+
+  // Get translated stats
+  const getTranslatedStats = () => {
+    return STATS.map((stat, index) => ({
+      ...stat,
+      label:
+        currentLanguage === "id"
+          ? index === 0
+            ? t.yearsOfExperience
+            : index === 1
+            ? t.projectsCompleted
+            : index === 2
+            ? t.awardsReceived
+            : t.hoursOfCoding
+          : stat.label,
+    }));
+  };
+
+  // Get translated passions
+  const getTranslatedPassions = () => {
+    return PASSION.map((passion, index) => ({
+      ...passion,
+      title:
+        currentLanguage === "id"
+          ? index === 0
+            ? t.innovationTitle
+            : index === 1
+            ? t.continuousTitle
+            : t.creatingTitle
+          : passion.title,
+      description:
+        currentLanguage === "id"
+          ? index === 0
+            ? t.innovationDesc
+            : index === 1
+            ? t.continuousDesc
+            : t.creatingDesc
+          : passion.description,
+    }));
+  };
 
   return (
     <section
@@ -33,7 +100,8 @@ const AboutSection = () => {
           transition={{ duration: 0.6 }}
           className="text-4xl md:text-5xl font-bold text-center mb-12"
         >
-          About <span className="text-blue-500">Me</span>
+          {t.aboutMe.split(" ")[0]}{" "}
+          <span className="text-blue-500">{t.aboutMe.split(" ")[1]}</span>
         </motion.h2>
 
         <motion.div
@@ -46,20 +114,35 @@ const AboutSection = () => {
         >
           {/* Journey/Timeline */}
           <div>
-            <h3 className="text-3xl font-semibold mb-8 text-center lg:text-left">My Journey</h3>
+            <h3 className="text-3xl font-semibold mb-8 text-center lg:text-left">
+              {t.myJourney}
+            </h3>
             <div className="relative pl-8 border-l-2 border-gray-700 dark:border-gray-200">
-              {JOURNEY_STEPS.map((step, index) => (
-                <motion.div key={index} variants={itemVariants} className="mb-8 last:mb-0">
+              {getTranslatedJourney().map((step, index) => (
+                <motion.div
+                  key={index}
+                  variants={itemVariants}
+                  className="mb-8 last:mb-0"
+                >
                   <div
                     className="absolute -left-3 mt-1 w-6 h-6 rounded-full flex items-center justify-center"
                     style={{ backgroundColor: step.color }}
                   >
-                    <step.icon size={16} className={isDarkMode ? "text-white" : "text-blue-500"} />
+                    <step.icon
+                      size={16}
+                      className={isDarkMode ? "text-white" : "text-blue-500"}
+                    />
                   </div>
-                  <p className={`text-sm ${themeClasses.textSecondary}`}>{step.year}</p>
+                  <p className={`text-sm ${themeClasses.textSecondary}`}>
+                    {step.year}
+                  </p>
                   <h4 className="text-xl font-semibold">{step.title}</h4>
-                  <p className={`text-md ${themeClasses.textSecondary}`}>{step.company}</p>
-                  <p className={`text-sm ${themeClasses.textSecondary}`}>{step.description}</p>
+                  <p className={`text-md ${themeClasses.textSecondary}`}>
+                    {step.company}
+                  </p>
+                  <p className={`text-sm ${themeClasses.textSecondary}`}>
+                    {step.description}
+                  </p>
                 </motion.div>
               ))}
             </div>
@@ -67,32 +150,47 @@ const AboutSection = () => {
 
           {/* Stats and Passions */}
           <div>
-            <h3 className="text-3xl font-semibold mb-8 text-center lg:text-left">My Stats & Passions</h3>
+            <h3 className="text-3xl font-semibold mb-8 text-center lg:text-left">
+              {t.myStatsPassions}
+            </h3>
             <div className="grid grid-cols-2 gap-6 mb-12">
-              {STATS.map((stat, index) => (
+              {getTranslatedStats().map((stat, index) => (
                 <motion.div
                   key={index}
                   variants={itemVariants}
                   className={`p-6 rounded-xl shadow-lg ${themeClasses.cardBg} ${themeClasses.border} border text-center`}
                 >
-                  <h4 className="text-4xl font-bold text-blue-500 mb-2">{stat.number}</h4>
-                  <p className={`text-sm ${themeClasses.textSecondary}`}>{stat.label}</p>
+                  <h4 className="text-4xl font-bold text-blue-500 mb-2">
+                    {stat.number}
+                  </h4>
+                  <p className={`text-sm ${themeClasses.textSecondary}`}>
+                    {stat.label}
+                  </p>
                 </motion.div>
               ))}
             </div>
 
-            <h3 className="text-3xl font-semibold mb-8 text-center lg:text-left">What Drives Me</h3>
+            <h3 className="text-3xl font-semibold mb-8 text-center lg:text-left">
+              {t.whatDrivesMe}
+            </h3>
             <div className="space-y-6">
-              {PASSION.map((passion, index) => (
+              {getTranslatedPassions().map((passion, index) => (
                 <motion.div
                   key={index}
                   variants={itemVariants}
                   className={`p-6 rounded-xl shadow-lg ${themeClasses.cardBg} ${themeClasses.border} border flex items-start`}
                 >
-                  <passion.icon size={28} className={`${themeClasses.accentText} mr-4 flex-shrink-0`} />
+                  <passion.icon
+                    size={28}
+                    className={`${themeClasses.accentText} mr-4 flex-shrink-0`}
+                  />
                   <div>
-                    <h4 className="text-xl font-semibold mb-1">{passion.title}</h4>
-                    <p className={`text-sm ${themeClasses.textSecondary}`}>{passion.description}</p>
+                    <h4 className="text-xl font-semibold mb-1">
+                      {passion.title}
+                    </h4>
+                    <p className={`text-sm ${themeClasses.textSecondary}`}>
+                      {passion.description}
+                    </p>
                   </div>
                 </motion.div>
               ))}
@@ -101,7 +199,7 @@ const AboutSection = () => {
         </motion.div>
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default AboutSection
+export default AboutSection;

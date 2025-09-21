@@ -1,16 +1,20 @@
-"use client"
+"use client";
 
-import React from "react"
-import { motion, useInView } from "framer-motion"
-import { useTheme } from "../../context/ThemeContext"
-import { PROJECT } from "../../utils/data"
-import { containerVariants, itemVariants } from "../../utils/helper"
-import { Github, ExternalLink } from "lucide-react"
+import React from "react";
+import { motion, useInView } from "framer-motion";
+import { useTheme } from "../../context/ThemeContext";
+import { useLanguage } from "../../context/LanguageContext";
+import { translations } from "../../utils/translations";
+import { PROJECT } from "../../utils/data";
+import { containerVariants, itemVariants } from "../../utils/helper";
+import { Github, ExternalLink } from "lucide-react";
 
 const WorkSection = () => {
-  const { isDarkMode } = useTheme()
-  const ref = React.useRef(null)
-  const isInView = useInView(ref, { once: true, amount: 0.1 })
+  const { isDarkMode } = useTheme();
+  const { currentLanguage } = useLanguage();
+  const t = translations[currentLanguage];
+  const ref = React.useRef(null);
+  const isInView = useInView(ref, { once: true, amount: 0.1 });
 
   const themeClasses = {
     bg: isDarkMode ? "bg-gray-900" : "bg-gray-100",
@@ -20,8 +24,45 @@ const WorkSection = () => {
     border: isDarkMode ? "border-gray-800" : "border-gray-200",
     tagBg: isDarkMode ? "bg-blue-900/30" : "bg-blue-100",
     tagText: isDarkMode ? "text-blue-300" : "text-blue-700",
-    iconColor: isDarkMode ? "text-gray-400 hover:text-white" : "text-gray-600 hover:text-gray-900",
-  }
+    iconColor: isDarkMode
+      ? "text-gray-400 hover:text-white"
+      : "text-gray-600 hover:text-gray-900",
+  };
+
+  // Get translated projects
+  const getTranslatedProjects = () => {
+    return PROJECT.map((project) => ({
+      ...project,
+      title:
+        currentLanguage === "id"
+          ? project.id === 1
+            ? t.inventoryTitle
+            : project.id === 2
+            ? t.hatTitle
+            : project.id === 3
+            ? t.busTitle
+            : project.id === 4
+            ? t.companyTitle
+            : project.id === 5
+            ? t.portfolioTitle
+            : t.stockTitle
+          : project.title,
+      description:
+        currentLanguage === "id"
+          ? project.id === 1
+            ? t.inventoryDesc
+            : project.id === 2
+            ? t.hatDesc
+            : project.id === 3
+            ? t.busDesc
+            : project.id === 4
+            ? t.companyDesc
+            : project.id === 5
+            ? t.portfolioDesc
+            : t.stockDesc
+          : project.description,
+    }));
+  };
 
   return (
     <section
@@ -36,7 +77,8 @@ const WorkSection = () => {
           transition={{ duration: 0.6 }}
           className="text-4xl md:text-5xl font-bold text-center mb-12"
         >
-          My <span className="text-blue-500">Work</span>
+          {t.myWork.split(" ")[0]}{" "}
+          <span className="text-blue-500">{t.myWork.split(" ")[1]}</span>
         </motion.h2>
 
         <motion.div
@@ -47,7 +89,7 @@ const WorkSection = () => {
           variants={containerVariants}
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
         >
-          {PROJECT.map((project, index) => (
+          {getTranslatedProjects().map((project, index) => (
             <motion.div
               key={project.id}
               variants={itemVariants}
@@ -61,7 +103,11 @@ const WorkSection = () => {
                 />
               </div>
               <h3 className="text-xl font-semibold mb-2">{project.title}</h3>
-              <p className={`text-sm ${themeClasses.textSecondary} mb-4 flex-grow`}>{project.description}</p>
+              <p
+                className={`text-sm ${themeClasses.textSecondary} mb-4 flex-grow`}
+              >
+                {project.description}
+              </p>
               <div className="flex flex-wrap gap-2 mb-4">
                 {project.tags.map((tag, tagIndex) => (
                   <span
@@ -103,7 +149,7 @@ const WorkSection = () => {
         </motion.div>
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default WorkSection
+export default WorkSection;

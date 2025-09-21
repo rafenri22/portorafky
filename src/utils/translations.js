@@ -6,6 +6,10 @@ export const translations = {
     work: "Work",
     about: "About",
     contact: "Contact",
+    darkMode: "Dark",
+    lightMode: "Light",
+    darkTheme: "Dark Theme",
+    indonesianLanguage: "Bahasa Indonesia",
 
     // Hero Section
     fullStackDeveloper: "Full Stack Developer",
@@ -16,7 +20,7 @@ export const translations = {
       "I craft beautiful, functional web and mobile applications with modern technologies and thoughtful user experiences.",
     heroDescriptionLong:
       "I craft beautiful, functional web and mobile applications with modern technologies and thoughtful user experiences. Passionate about creating solutions that solve real problems.",
-    curriculumVitae: "Curriculum Vitae",
+    curriculumVitae: "View Portfolio",
     getInTouch: "Get in Touch",
     yearsExperience: "Years Experience",
     projects: "Projects",
@@ -69,7 +73,7 @@ export const translations = {
 
     // Contact Section
     getInTouchTitle: "Get in Touch",
-    contactInfo: "Contact Info",
+    contactInfo: "Contact Information",
     connectWithMe: "Connect with Me",
     connectDesc:
       "Feel free to reach out through my social channels or connect with me online.",
@@ -116,6 +120,10 @@ export const translations = {
     work: "Karya",
     about: "Tentang",
     contact: "Kontak",
+    darkMode: "Gelap",
+    lightMode: "Terang",
+    darkTheme: "Tema Gelap",
+    indonesianLanguage: "Bahasa Indonesia",
 
     // Hero Section
     fullStackDeveloper: "Pengembang Full Stack",
@@ -123,24 +131,27 @@ export const translations = {
     experiences: "Digital",
     thatMatter: "yang Bermakna",
     heroDescription:
-      "Saya menciptakan aplikasi web dan mobile yang indah dan fungsional dengan teknologi modern dan pengalaman pengguna yang thoughtful.",
+      "Saya menciptakan aplikasi web dan mobile yang profesional serta fungsional dengan teknologi modern dan pengalaman pengguna yang inovatif.",
     heroDescriptionLong:
-      "Saya menciptakan aplikasi web dan mobile yang indah dan fungsional dengan teknologi modern dan pengalaman pengguna yang thoughtful. Bersemangat dalam menciptakan solusi yang memecahkan masalah nyata.",
-    curriculumVitae: "Curriculum Vitae",
+      "Saya menciptakan aplikasi web dan mobile yang profesional serta fungsional dengan teknologi modern dan pengalaman pengguna yang inovatif. Bersemangat dalam menciptakan solusi yang memecahkan masalah.",
+    curriculumVitae: "Lihat Portofolio",
     getInTouch: "Hubungi Saya",
     yearsExperience: "Tahun Pengalaman",
     projects: "Proyek",
 
     // Skills Section
     mySkills: "Keahlian Saya",
-    frontend: "Frontend",
-    backend: "Backend",
-    database: "Database",
+    frontend: "Sistem Frontend",
+    backend: "Sistem Backend",
+    database: "Basis Data",
     devops: "DevOps",
-    frontendDesc: "Menciptakan antarmuka pengguna yang indah dan responsif.",
-    backendDesc: "Membangun solusi server-side yang robust",
-    databaseDesc: "Merancang dan mengimplementasikan database yang efisien",
-    devopsDesc: "Memastikan deployment dan scaling yang lancar",
+    frontendDesc:
+      "Menciptakan antarmuka pengguna yang fungsional dan responsif",
+    backendDesc:
+      "Membangun dan memberikan solusi dari sisi server yang kuat dan andal",
+    databaseDesc: "Merancang dan mengimplementasikan basis data yang efisien",
+    devopsDesc:
+      "Memastikan agar penerapan dan penskalaan sistem berjalan dengan lancar",
 
     // Work Section
     myWork: "Karya Saya",
@@ -148,23 +159,23 @@ export const translations = {
     // About Section
     aboutMe: "Tentang Saya",
     myJourney: "Perjalanan Saya",
-    myStatsPassions: "Statistik & Passion Saya",
+    myStatsPassions: "Statistik & Minat Saya",
     whatDrivesMe: "Yang Memotivasi Saya",
     yearsOfExperience: "Tahun pengalaman",
-    projectsCompleted: "Proyek selesai",
+    projectsCompleted: "Proyek diselesaikan",
     awardsReceived: "Penghargaan diterima",
-    hoursOfCoding: "Jam coding",
+    hoursOfCoding: "Jam pemrograman",
 
     // About Journey
-    androidDeveloper: "Android Developer",
+    androidDeveloper: "Pengembang Android",
     androidDevDesc:
-      "Mengembangkan dan memaintain aplikasi Android native dengan fokus pada performa, skalabilitas, dan pengalaman pengguna yang seamless menggunakan Kotlin dan Java.",
+      "Mengembangkan dan memelihara aplikasi Android native dengan fokus pada kinerja, skalabilitas, dan pengalaman pengguna yang lancar menggunakan Kotlin dan Java.",
     ecommerceOutreach: "Penyuluhan Aplikasi E-Commerce",
     ecommerceDesc:
-      "Mengadakan pelatihan dan penyuluhan tentang pemanfaatan aplikasi e-commerce untuk meningkatkan penjualan online bagi siswa di SMK Negeri 2 Kota Depok.",
-    fullStackDevRole: "Full Stack Developer",
+      "Mengadakan pelatihan dan penyuluhan tentang pemanfaatan aplikasi e-commerce untuk meningkatkan penjualan daring bagi siswa di SMK Negeri 2 Kota Depok.",
+    fullStackDevRole: "Pengembang Full Stack",
     fullStackDesc:
-      "Memimpin tim lintas fungsi dalam membangun dan men-deploy aplikasi web yang scalable, mengawasi pengembangan frontend dan backend dengan teknologi modern seperti React, Node.js, dan infrastruktur cloud.",
+      "Memimpin tim lintas fungsi dalam membangun dan menerapkan aplikasi web yang dapat diskalakan, mengawasi pengembangan antarmuka pengguna dan backend dengan teknologi modern seperti React, Node.js, dan infrastruktur cloud.",
 
     // Passions
     innovationTitle: "Inovasi & Pemecahan Masalah",
@@ -175,47 +186,47 @@ export const translations = {
       "Selalu ingin belajar teknologi baru dan meningkatkan keterampilan yang ada untuk tetap unggul di industri.",
     creatingTitle: "Menciptakan Dampak",
     creatingDesc:
-      "Senang berkontribusi pada proyek open-source dan berbagi pengetahuan dengan komunitas developer.",
+      "Senang berkontribusi pada proyek sumber terbuka dan berbagi pengetahuan dengan komunitas pengembang.",
 
     // Contact Section
     getInTouchTitle: "Hubungi Saya",
-    contactInfo: "Info Kontak",
+    contactInfo: "Informasi Kontak",
     connectWithMe: "Terhubung dengan Saya",
     connectDesc:
-      "Silakan hubungi saya melalui media sosial atau terhubung dengan saya secara online.",
-    sendMessage: "Kirim Pesan",
+      "Silakan hubungi saya melalui saluran media sosial atau terhubung dengan saya secara daring.",
+    sendMessage: "Kirim Pesan kepada Saya",
     name: "Nama",
-    email: "Email",
+    email: "Surel",
     message: "Pesan",
     yourName: "Nama Anda",
-    yourEmail: "Email Anda",
+    yourEmail: "Surel Anda",
     yourMessage: "Pesan Anda",
     sendMessageBtn: "Kirim Pesan",
-    emailLabel: "Email",
+    emailLabel: "Surel",
     phoneLabel: "Telepon",
     locationLabel: "Lokasi",
 
     // Footer
-    allRightsReserved: "Hak cipta dilindungi.",
+    allRightsReserved: "Seluruh hak cipta dilindungi.",
 
     // Project Titles & Descriptions
-    inventoryTitle: "Sistem Manajemen Inventori",
+    inventoryTitle: "Sistem Manajemen Persediaan",
     inventoryDesc:
-      "Aplikasi web lengkap yang dirancang untuk mengelola stok produk, melacak level inventori, dan menghasilkan laporan real-time untuk operasi gudang yang efisien.",
-    hatTitle: "E-Commerce Topi Custom",
+      "Aplikasi web lengkap yang dirancang untuk mengelola stok produk, melacak tingkat persediaan, dan menghasilkan laporan waktu nyata untuk operasi gudang yang efisien.",
+    hatTitle: "E-Commerce Topi Kustom",
     hatDesc:
-      "Website e-commerce untuk memesan topi yang dipersonalisasi dengan desain custom, dibangun dengan tech stack modern.",
+      "Situs web e-commerce untuk memesan topi yang dipersonalisasi dengan desain kustom, dibangun dengan tumpukan teknologi modern.",
     busTitle: "Aplikasi Manajemen Bus",
     busDesc:
       "Aplikasi mobile berbasis Flutter untuk mengelola bus, karyawan, dan rute untuk perusahaan transportasi.",
-    companyTitle: "Website Profil Perusahaan",
+    companyTitle: "Situs Web Profil Perusahaan",
     companyDesc:
-      "Website profil perusahaan yang responsif dan modern dibangun dengan Next.js, React, dan Tailwind CSS untuk menampilkan informasi bisnis, layanan, dan detail kontak.",
-    portfolioTitle: "Website Portofolio Personal",
+      "Situs web profil perusahaan yang responsif dan modern dibangun dengan Next.js, React, dan Tailwind CSS untuk menampilkan informasi bisnis, layanan, dan detail kontak.",
+    portfolioTitle: "Situs Web Portofolio Pribadi",
     portfolioDesc:
-      "Website portofolio personal yang responsif untuk menampilkan proyek, keahlian, dan pengalaman saya.",
+      "Situs web portofolio pribadi yang responsif untuk menampilkan proyek, keahlian, dan pengalaman saya.",
     stockTitle: "Aplikasi Stock Opname Gudang",
     stockDesc:
-      "Aplikasi Android yang dibangun dengan Java untuk melakukan stock opname real-time dan pelacakan inventori di gudang atau lingkungan retail.",
+      "Aplikasi Android yang dibangun dengan Java untuk melakukan stock opname waktu nyata dan pelacakan persediaan di gudang atau lingkungan ritel.",
   },
 };
