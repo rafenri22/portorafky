@@ -191,7 +191,10 @@ const HeroSection = () => {
               <motion.button
                 whileHover={{ y: -2 }}
                 whileTap={{ scale: 0.98 }}
-                onClick={() => scrollToSection("contact")}
+                onClick={() =>
+                  (window.location.href =
+                    "https://drive.google.com/file/d/1Rcp2y9utV9K8CFgsTvpAq8dIYxOyhb08/view?usp=drive_link")
+                }
                 className={`border ${themeClasses.buttonSecondary} px-8 py-3 rounded-full text-sm uppercase tracking-wider font-medium transition-all duration-300`}
               >
                 {t.getInTouch}
@@ -274,7 +277,10 @@ const HeroSection = () => {
                 <motion.button
                   whileHover={{ y: -2 }}
                   whileTap={{ scale: 0.98 }}
-                  onClick={() => scrollToSection("work")}
+                  onClick={() =>
+                    (window.location.href =
+                      "https://drive.google.com/file/d/1Rcp2y9utV9K8CFgsTvpAq8dIYxOyhb08/view?usp=drive_link")
+                  }
                   className={`bg-blue-500 ${themeClasses.buttonHover} text-white px-10 py-4 rounded-full text-base uppercase tracking-wider font-medium transition-all duration-300`}
                 >
                   {t.curriculumVitae}
